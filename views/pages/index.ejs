@@ -1,0 +1,166 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <% include ../partials/head %>
+      <!-- Custom styles for this template -->
+      <link href="/public/album.css" rel="stylesheet">
+      <link href="/public/slider.css" rel="stylesheet">
+      <link href="/public/scrolldown.css" rel="stylesheet">
+      <!-- Custom script for this template -->
+      <!-- ==================================================================================================================== -->
+      <style media="screen">
+      .bgcolor{
+        background:#A62639;
+      }
+      .Marathon-logo{
+        padding: 20px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 400px;
+      }
+      .brandimg{
+        width: 120px;
+      }
+      </style>
+      <!-- ==================================================================================================================== -->
+    </head>
+    <body onload="init()">
+      <% include ../partials/index_nav %>
+      <% include ../partials/alert %>
+      <% include ../partials/box %>
+      <a href="javascript:sdbth()"id="scroll-down-bth"></a>
+      <script type="text/javascript">
+      function init(){
+        <% if (username) { %>
+          sdbth();
+        <% } %> 
+      }
+        function sdbth(){
+              document.getElementById("scroll-down-bth").scrollIntoView({ behavior: 'smooth',block: 'start' });
+        }
+      </script>
+      <!-- header -->
+      <main role="main">
+        <!-- ==================================================================================================================== -->
+        <div class="album py-5 bgcolor">
+              <img src="/public/marathon-logobgred.png" alt="" class="Marathon-logo">
+        </div>
+        <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  -->
+        <div class="bg-light" style="padding:70px 0;">
+          <div class="container">
+            <div class="row">
+
+              <div data-aos="fade-right" data-aos-offset="50" class="col-sm-12 col-lg-6">
+                <center style="padding:20px;"><h1>Why Marathon Sports</h1></center>
+                <p>Marathon Sports is one  of the largest and most popular chains of sporting goods stores in Hong Kong.  It offers the widest range of sports and sports-inspired footwear, apparel and accessories to help every customer go the distance and enjoy a lifetime of active, healthy living!</p>
+                <p><small style="float:right">~ Marathon Sports</small></p>
+                <br><br><br>
+                <center>
+                <div data-aos="zoom-out" data-aos-offset="50" class="mb-5">
+                  <img src="public/marathon-logo.png" alt="marathon sports" class="brandimg">
+                  <img src="https://wwwm.marathonsports-eshop.hk/wysiwyg/Logo/new-balance-logo.png" alt="new balance" class="brandimg">
+                  <img src="public/images/Reebok-Logo-Transparent-PNG.png" alt="reebok" class="brandimg">
+                  <img src="https://wwwm.marathonsports-eshop.hk/wysiwyg/Logo/skechers_logo.png" alt="skechers" class="brandimg"><br><br><br>
+                  <img src="https://wwwm.marathonsports-eshop.hk/wysiwyg/Logo/lec_logo.png" alt="le coq sportif" class="brandimg">
+                  <img src="public/images/puma-logo.png" alt="puma" class="brandimg">
+                  <img src="https://wwwm.marathonsports-eshop.hk/wysiwyg/Logo/heelys_logo.png" alt="heelys" class="brandimg">
+                  <img src="https://wwwm.marathonsports-eshop.hk/wysiwyg/Logo/adidas-originals-logo.png" alt="Adidas" class="brandimg">
+                </div>
+                </center>
+              </div>
+
+              <div class="col-lg-1 col-sm-0"></div>
+              <div data-aos="fade-left" data-aos-offset="50" class="col-sm-12 col-lg-5">
+              <center>
+                <% include ../partials/slider %>
+              </center>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <!-- ==================================================================================================================== -->
+        <div class="album py-5 bgcolor" style="color:white;">
+          <center><h1>NEW ARRIVALS</h1></center>
+          <center><p>Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time.</p></center>
+        </div>
+        <!-- = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =  -->
+        <div class="bg-light" style="padding:70px 0;">
+          <div class="container">
+              <div class="row">
+                  <% for(var i=1; i<data.length; i++) { %>
+                    <div data-aos="zoom-in" data-aos-offset="50" class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card mb-4 shadow-sm">
+                            <a href="/product/<%= data[i][3] %>">
+                                <% if((typeof data[i][4] != null && data[i][4])) { %>
+                                <img class="card-img-top" src="/public/images/<%= data[i][3] %>/<%= data[i][4]%>.jpg" alt="Card image cap"></a>
+                                <% } else { %>
+                                <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&bg=55595c&fg=eceeef&text=Thumbnail" alt="Card image cap"></a>
+                                <% } %>
+                            <div class="card-body">
+                                <!-- <p class="card-text"><%= data[i][0] %><br><% if( data[i][5] != 0){ %> <span style="color:#ff6e00;"><strike>$ <b><%= data[i][1] %></b></strike></span> <span style="color:red;"> <%= data[i][5] %>% OFF</span> <% } else { %> <span style="color:#ff6e00;">$ <b><%= data[i][1] %></b></span> <% } %></p> -->
+                                <p class="card-text"><%= data[i][0] %><br><% if( data[i][5] != 0){ %> <span style="color:#ff6e00;"><b>$<%= Math.round(data[i][1]*(1-data[i][5]/100)*10)/10%></b> </span><span style="color:gray; font-size:11px;"><strike>$ <%= data[i][1] %></strike></span> <span style="color:red;"> <%= data[i][5] %>% OFF</span><% } else { %> <span style="color:#ff6e00;">$ <b><%= data[i][1] %></b></span> <% } %></p>
+                                <p>Size : <select id="size<%= data[i][3]%>">
+                                  <% for(var s=0; s<size.length; s++) { %>
+                                    <% if (size[s][0] == data[i][3]) { %>
+                                        <option value="<%= size[s][2]%>"><%= size[s][1]%></option>
+                                    <% } %>
+                                  <% } %>
+                                          </select></p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="/product/<%= data[i][3] %>"><button type="button" class="btn btn-sm btn-outline-primary">View</button></a>
+                                        <!-- <form action="/add-to-cart" method="post"> -->
+                                          <!-- <%= error_message %> -->
+                                          <% if (username) { %> 
+                                        <button type="submit" class="btn btn-sm btn-success"  onclick="addToCart(<%= data[i][3]%>)" id="addto<%= data[i][3] %>">Add to cart</button>
+                                        <% } %> 
+                                        <button type="submit" class="btn btn-sm btn-info" id="added<%= data[i][3] %>" style="display:none;">added</button>
+                                    </div>
+                                    <small class="text-muted"> <%= data[i][2]%></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                  <% } %>
+                </div>
+              </div>
+              <div><center><a href="/products"><button type="button" class="btn btn-lg btn-outline-secondary">Browse More <i class="fas fa-angle-double-down"></i></button></a></center></div>
+          </div>
+          </div>
+          </main>
+        <div>
+            <!-- footer -->
+            <% include ../partials/footer %>
+        </div>
+        <script>
+            var selectedSlide = document.getElementsByName('slides');
+            var checkedValue = 1;
+
+            // autoplay slider
+            setInterval(function () {
+                document.getElementsByName("slides").false;
+                changeSlide = document.getElementById("slide" + checkedValue);
+
+                if (checkedValue == selectedSlide.length) {
+                    checkedValue = 1;
+                    changeSlide.checked = true;
+                } else {
+                    checkedValue = (checkedValue + 1);
+                    changeSlide.checked = true;
+                }
+            }, 3000);
+
+          AOS.init();
+
+          if (document.getElementById('errormessage')) {
+            setTimeout(function() {
+              document.getElementById('errormessage').style.display = 'none';
+            }, 3000);
+          }
+        </script>
+    </body>
+</html>

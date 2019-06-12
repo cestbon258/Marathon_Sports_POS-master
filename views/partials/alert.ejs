@@ -1,0 +1,7 @@
+
+<% if(error_message) { %>
+	<div id="errormessage" class="alert alert-danger" style="position: fixed;z-index: 1000; width: 100%;">
+	    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+	    <strong>Sorry!</strong> <%= error_message %>
+	</div>
+<% } %>

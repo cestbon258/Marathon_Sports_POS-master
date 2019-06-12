@@ -1,0 +1,37 @@
+{
+  "name": "marathon_sports_pos",
+  "version": "1.0.0",
+  "description": "206CDE",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/klhong124/Marathon_Sports_POS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/klhong124/Marathon_Sports_POS/issues"
+  },
+  "homepage": "https://github.com/klhong124/Marathon_Sports_POS#readme",
+  "dependencies": {
+    "admin-lte": "^2.4.8",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.3",
+    "country-state-city": "0.0.5",
+    "ejs": "^2.6.1",
+    "errors": "^0.3.0",
+    "express": "^4.16.3",
+    "nodemon": "^1.18.4",
+    "openurl": "^1.1.1",
+    "oracle": "^0.4.1",
+    "oracledb": "^2.3.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "pdf-maker": "0.0.2"
+  },
+  "devDependencies": {}
+}
