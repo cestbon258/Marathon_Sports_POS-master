@@ -11,7 +11,22 @@
 </p>
 
 # Features
+- [Build Locally](#build-locally)
 - [Demo Video](#demo-video)
+
+
+# Build Locally
+Clone the repo, and:
+
+```md
+$ npm install
+```
+Or you can run the development server with:
+
+```md
+$ npm start
+```
+
 
 # Demo Video
 https://youtu.be/FCgqwwNL-Tk
