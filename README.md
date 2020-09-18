@@ -1,4 +1,3 @@
-# Marathon_Sports_POS-master
 
 <p align="center">
  <h2 align="center">Point of Sale</h2>
